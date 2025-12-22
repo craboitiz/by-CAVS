@@ -1,42 +1,102 @@
-<h1 class="h1">Sobre CAVS</h1>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sobre CAVS — by CAVS</title>
 
-<p class="lead">
-CAVS es un proyecto de diseño y fabricación enfocado en la creación de objetos
-funcionales, donde el material, el proceso y el uso son parte central del diseño.
-</p>
+  <!-- ESTE LINK ES CLAVE -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
 
-<hr class="hr" />
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <span>by CAVS</span><span class="dot">•</span>
+    </a>
 
-<p class="p">
-Fundado por <strong>Cristóbal Aboitiz</strong>, CAVS nace desde el trabajo directo
-con materiales y la fabricación en taller, combinando diseño, técnica y oficio.
-Cada pieza se desarrolla desde la idea hasta su ejecución final, cuidando forma,
-proporción y terminación.
-</p>
+    <nav class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="blacksheep.html">Blacksheep</a>
+      <a href="black-ivory.html">Black Ivory</a>
+      <a class="active" href="about.html">Sobre CAVS</a>
+      <a href="contact.html">Contacto</a>
+    </nav>
+  </div>
+</header>
 
-<p class="p">
-El proyecto se estructura en distintas líneas, cada una con una identidad propia,
-pero unidas por una misma lógica de diseño honesto y producción consciente.
-</p>
+<main>
+  <section class="section">
+    <div class="container">
 
-<hr class="hr" />
+      <!-- 👇 TODO TU TEXTO VA AQUÍ DENTRO -->
+      <div class="card pad">
 
-<h2 class="h2">Blacksheep</h2>
-<p class="p">
-Línea enfocada en piezas de madera y resina, principalmente tablas, objetos
-funcionales y trabajos a pedido. Cada pieza es única, fabricada en series
-limitadas o como encargo personalizado.
-</p>
+        <!-- PEGA AQUÍ EXACTO EL BLOQUE QUE ME MANDASTE -->
+        <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
 
-<h2 class="h2">Black Ivory</h2>
-<p class="p">
-Línea dedicada a productos de cerámica gres, explorando piezas funcionales y
-decorativas a través del material, la textura y la forma. Actualmente en desarrollo.
-</p>
+        <h1 class="h1">Sobre CAVS</h1>
 
-<hr class="hr" />
+        <p class="lead">
+          CAVS es un proyecto de diseño y fabricación enfocado en la creación de objetos
+          funcionales, donde el material, el proceso y el uso son parte central del diseño.
+        </p>
 
-<p class="p">
-CAVS entiende la fabricación como parte del diseño: no solo el resultado final,
-sino el proceso, las decisiones y el tiempo que cada objeto requiere.
-</p>
+        <hr class="hr" />
+
+        <p class="p">
+          Fundado por <strong>Cristóbal Aboitiz</strong>, CAVS nace desde el trabajo directo
+          con materiales y la fabricación en taller, combinando diseño, técnica y oficio.
+          Cada pieza se desarrolla desde la idea hasta su ejecución final, cuidando forma,
+          proporción y terminación.
+        </p>
+
+        <p class="p">
+          El proyecto se estructura en distintas líneas, cada una con una identidad propia,
+          pero unidas por una misma lógica de diseño honesto y producción consciente.
+        </p>
+
+        <hr class="hr" />
+
+        <h2 class="h2">Blacksheep</h2>
+        <p class="p">
+          Línea enfocada en piezas de madera y resina, principalmente tablas, objetos
+          funcionales y trabajos a pedido. Cada pieza es única, fabricada en series
+          limitadas o como encargo personalizado.
+        </p>
+
+        <h2 class="h2">Black Ivory</h2>
+        <p class="p">
+          Línea dedicada a productos de cerámica gres, explorando piezas funcionales y
+          decorativas a través del material, la textura y la forma. Actualmente en desarrollo.
+        </p>
+
+        <hr class="hr" />
+
+        <p class="p">
+          CAVS entiende la fabricación como parte del diseño: no solo el resultado final,
+          sino el proceso, las decisiones y el tiempo que cada objeto requiere.
+        </p>
+
+        <!-- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ -->
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div>© <span id="year"></span> by CAVS — Cristóbal Aboitiz</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
