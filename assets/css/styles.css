@@ -323,8 +323,8 @@ img{ max-width:100%; display:block; }
 }
 /* Brand logos (home cards) */
 .brand-logo{
-  height: 32px;
+  height: 64px;
   width: auto;
-  margin-bottom: 10px;
-  opacity: .9;
+  margin-bottom: 14px;
+  opacity: .95;
 }
