@@ -62,4 +62,127 @@
       </div>
 
       <div class="card">
-        <div class="hero-image" style="bac
+        <div class="hero-image" style="background-image:
+          linear-gradient(180deg, rgba(11,11,13,0) 0%, rgba(11,11,13,.65) 100%),
+          url('assets/img/blacksheep-placeholder.jpg');">
+          <div class="label">
+            Foto de Blacksheep (reemplazar placeholder).
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section class="section" id="catalogo">
+    <div class="container">
+
+      <h2 class="h2">Catálogo</h2>
+      <p class="p">Piezas disponibles, vendidas y a pedido.</p>
+
+      <div style="height:14px"></div>
+
+      <div class="products">
+
+        <!-- BS-001 -->
+        <div class="product">
+          <a class="cardlink" href="tablas/BS-001.html">
+            <div class="img">
+              <img
+                src="assets/img/tablas/BS-001-1.png"
+                alt="Tabla picar Nogal Menta"
+                loading="lazy">
+            </div>
+
+            <div class="body">
+              <div class="meta" style="align-items:flex-start">
+                <div>
+                  <p class="title">Tabla picar Nogal Menta</p>
+                  <div class="price">Precio: <strong>$59.990</strong></div>
+                  <div class="small-muted">Código: BS-001</div>
+                </div>
+
+                <span class="tag sold">Vendida</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- DUPLICAR ESTE BLOQUE PARA MÁS TABLAS -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ENCARGOS -->
+  <section class="section" id="encargos">
+    <div class="container">
+
+      <h2 class="h2">Cómo encargar</h2>
+
+      <div class="grid-3" style="margin-top:14px">
+
+        <div class="card pad">
+          <div class="kicker">1</div>
+          <h3 style="margin:8px 0 6px">Define tu pieza</h3>
+          <p class="p">
+            Medidas, tipo de uso, madera y color de resina.
+          </p>
+        </div>
+
+        <div class="card pad">
+          <div class="kicker">2</div>
+          <h3 style="margin:8px 0 6px">Confirmación</h3>
+          <p class="p">
+            Te envío propuesta y plazo. Reserva con abono.
+          </p>
+        </div>
+
+        <div class="card pad">
+          <div class="kicker">3</div>
+          <h3 style="margin:8px 0 6px">Fabricación</h3>
+          <p class="p">
+            Proceso en taller y terminación final.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="actions" style="margin-top:18px">
+        <a class="btn primary"
+           href="https://wa.me/56XXXXXXXXX"
+           target="_blank" rel="noopener">
+          Encargar por WhatsApp
+        </a>
+
+        <a class="btn" href="contact.html">
+          Ir a Contacto
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div>
+        © <span id="year"></span> by CAVS — Cristóbal Aboitiz
+      </div>
+      <div class="small-muted">
+        <a href="index.html">Inicio</a> ·
+        <a href="contact.html">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
