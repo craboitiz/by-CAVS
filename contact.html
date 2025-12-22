@@ -1,31 +1,97 @@
-<h1 class="h1">Contacto</h1>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contacto — by CAVS</title>
+  <meta name="description" content="Contacto by CAVS — Consultas, encargos personalizados y disponibilidad de productos." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
 
-<p class="lead">
-Si tienes interés en alguna pieza, un encargo personalizado
-o quieres más información sobre el proyecto, puedes escribirme directamente.
-</p>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <span>by CAVS</span><span class="dot">•</span>
+    </a>
 
-<hr class="hr" />
+    <nav class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="blacksheep.html">Blacksheep</a>
+      <a href="black-ivory.html">Black Ivory</a>
+      <a href="about.html">Sobre CAVS</a>
+      <a class="active" href="contact.html">Contacto</a>
+    </nav>
 
-<p class="p">
-Para consultas sobre disponibilidad, encargos a medida, plazos o materiales,
-el canal principal de contacto es WhatsApp.
-</p>
+    <a class="cta"
+       href="https://wa.me/56XXXXXXXXX"
+       target="_blank" rel="noopener">
+      Cotizar
+    </a>
+  </div>
+</header>
 
-<div class="actions" style="margin-top:24px;">
-  <a class="btn primary"
-     href="https://wa.me/56XXXXXXXXX"
-     target="_blank" rel="noopener">
-    Escribir por WhatsApp
-  </a>
-</div>
+<main>
+  <section class="section">
+    <div class="container">
 
-<hr class="hr" />
+      <div class="card pad">
 
-<p class="small-muted">
-También puedes escribir por correo si lo prefieres.
-</p>
+        <h1 class="h1">Contacto</h1>
 
-<p class="p">
-<strong>Email:</strong> contacto@bycavs.cl
-</p>
+        <p class="lead">
+          Si tienes interés en alguna pieza, un encargo personalizado
+          o quieres más información sobre el proyecto, puedes escribirme directamente.
+        </p>
+
+        <hr class="hr" />
+
+        <p class="p">
+          Para consultas sobre disponibilidad, encargos a medida, plazos o materiales,
+          el canal principal de contacto es WhatsApp.
+        </p>
+
+        <div class="actions" style="margin-top:24px;">
+          <a class="btn primary"
+             href="https://wa.me/56XXXXXXXXX"
+             target="_blank" rel="noopener">
+            Escribir por WhatsApp
+          </a>
+        </div>
+
+        <hr class="hr" />
+
+        <p class="small-muted">
+          También puedes escribir por correo si lo prefieres.
+        </p>
+
+        <p class="p">
+          <strong>Email:</strong> contacto@bycavs.cl
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div>
+        © <span id="year"></span> by CAVS — Cristóbal Aboitiz
+      </div>
+      <div class="small-muted">
+        <a href="index.html">Inicio</a> ·
+        <a href="about.html">Sobre CAVS</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
