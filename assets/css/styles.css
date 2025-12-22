@@ -321,3 +321,10 @@ img{ max-width:100%; display:block; }
   background: rgba(11,11,13,.55);
   border-top: 1px solid rgba(255,255,255,.1);
 }
+/* Brand logos (home cards) */
+.brand-logo{
+  height: 32px;
+  width: auto;
+  margin-bottom: 10px;
+  opacity: .9;
+}
