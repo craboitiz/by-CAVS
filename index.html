@@ -152,9 +152,26 @@
 </footer>
 
 <script>
+  // Año automático en el footer
   document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script>
+  // Rotador de imágenes del hero
+  const slides = document.querySelectorAll('.hero-slide');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4500); // cambia cada 4.5 segundos
 </script>
 
 </body>
 </html>
+
+</body>
+</html>
+
 
