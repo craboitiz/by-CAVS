@@ -127,6 +127,7 @@ img{ max-width:100%; display:block; }
   background: rgba(214,180,106,.16);
   border: 1px solid rgba(214,180,106,.35);
 }
+
 .hero-image{
   height: 100%;
   min-height: 240px;
@@ -240,6 +241,7 @@ img{ max-width:100%; display:block; }
 }
 .footer a{ color: rgba(243,243,244,.82); }
 .small-muted{ color: var(--muted); }
+
 /* --- Horizontal gallery (big images, swipe/scroll) --- */
 .hscroll {
   display: flex;
@@ -275,7 +277,7 @@ img{ max-width:100%; display:block; }
 
 .hscroll .shot img{
   width: 100%;
-  height: 520px;      /* grande */
+  height: 520px;       /* grande */
   object-fit: contain; /* ideal para PNG transparentes */
   display: block;
 }
@@ -297,7 +299,6 @@ img{ max-width:100%; display:block; }
   min-height: 260px;
   overflow: hidden;
 }
-
 .hero-slide{
   position: absolute;
   inset: 0;
@@ -306,11 +307,9 @@ img{ max-width:100%; display:block; }
   opacity: 0;
   transition: opacity 1.2s ease;
 }
-
 .hero-slide.active{
   opacity: 1;
 }
-
 .hero-rotator .label{
   position: absolute;
   bottom: 0;
@@ -321,17 +320,36 @@ img{ max-width:100%; display:block; }
   background: rgba(11,11,13,.55);
   border-top: 1px solid rgba(255,255,255,.1);
 }
-/* Brand logos (home cards) */
+
+/* =========================
+   BRAND LOGOS (FINAL)
+   ========================= */
+
+/* Base (por defecto) */
 .brand-logo{
-  height: 64px;
+  height: 48px;     /* base: no tan chico */
   width: auto;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   opacity: .95;
 }
-/* --- Brand logos (override real) --- */
+
+/* Home: dentro de las cards de marca */
 .brand-card .brand-logo{
-  height: 64px;
-  max-height: none;
+  height: 64px;     /* aquí lo hacemos grande de verdad */
   width: auto;
-  opacity: .95;
+  max-height: none; /* evita que otra regla lo limite */
+}
+
+/* Páginas internas: arriba del H1 (blacksheep / black ivory) */
+.card.pad .brand-logo{
+  height: 72px;
+  width: auto;
+  max-height: none;
+}
+
+/* Ajuste mobile */
+@media (max-width: 560px){
+  .brand-logo{ height: 40px; }
+  .brand-card .brand-logo{ height: 52px; }
+  .card.pad .brand-logo{ height: 56px; }
 }
