@@ -328,3 +328,10 @@ img{ max-width:100%; display:block; }
   margin-bottom: 14px;
   opacity: .95;
 }
+/* --- Brand logos (override real) --- */
+.brand-card .brand-logo{
+  height: 64px;
+  max-height: none;
+  width: auto;
+  opacity: .95;
+}
