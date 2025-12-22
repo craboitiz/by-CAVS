@@ -4,14 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Black Ivory — by CAVS</title>
-  <meta name="description" content="Black Ivory by CAVS — línea sobria y minimal." />
+  <meta name="description" content="Black Ivory by CAVS — Próximamente." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
 <header class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="index.html"><span>by CAVS</span><span class="dot">•</span></a>
+    <a class="brand" href="index.html">
+      <span>by CAVS</span><span class="dot">•</span>
+    </a>
 
     <nav class="nav-links">
       <a href="index.html">Inicio</a>
@@ -20,87 +22,38 @@
       <a href="about.html">Sobre CAVS</a>
       <a href="contact.html">Contacto</a>
     </nav>
-
-    <a class="cta" href="https://wa.me/56XXXXXXXXX" target="_blank" rel="noopener">Cotizar</a>
   </div>
 </header>
 
 <main>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="card pad">
-        <div class="kicker">Segunda marca</div>
-        <h1 class="h1">Black Ivory</h1>
-        <p class="lead">Línea sobria y minimal. Objetos funcionales y decorativos.</p>
-
-        <div class="pills">
-          <span class="pill">Minimal</span>
-          <span class="pill">Premium</span>
-          <span class="pill">Colecciones</span>
-        </div>
-
-        <div class="actions">
-          <a class="btn primary" href="#coleccion">Ver colección</a>
-          <a class="btn" href="contact.html">Encargar</a>
-        </div>
-
-        <hr class="hr" />
-        <p class="p">
-          (Placeholder) Aquí definimos exactamente qué productos tendrá Black Ivory y lo ajustamos al tono de marca.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="hero-image" style="background-image:
-          linear-gradient(180deg, rgba(11,11,13,0) 0%, rgba(11,11,13,.65) 100%),
-          url('assets/img/blackivory-placeholder.jpg');">
-          <div class="label">Foto Black Ivory (reemplazar placeholder).</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section small" id="coleccion">
+  <section class="section">
     <div class="container">
-      <h2 class="h2">Colección</h2>
-      <p class="p">Plantilla demo para que después agreguemos productos reales.</p>
 
-      <div style="height:14px"></div>
+      <div class="card pad" style="text-align:center; padding:60px 26px;">
+        <div class="kicker">Nueva línea</div>
 
-      <div class="products">
-        <div class="product">
-          <div class="img">Imagen</div>
-          <div class="body">
-            <div class="meta">
-              <strong>Pieza 01</strong>
-              <span class="tag made">Encargo</span>
-            </div>
-            <div class="small-muted">Descripción corta de la pieza</div>
-          </div>
+        <h1 class="h1" style="margin-top:14px;">
+          Black Ivory
+        </h1>
+
+       <p class="lead" style="max-width:520px; margin:18px auto;">
+  Nueva línea de productos en <strong>cerámica gres</strong>,
+  piezas funcionales y decorativas hechas en series limitadas.
+  <br><strong>Próximamente.</strong>
+</p>
+
+
+        <div class="actions" style="justify-content:center; margin-top:26px;">
+          <a class="btn" href="index.html">Volver al inicio</a>
+          <a class="btn primary"
+             href="https://wa.me/56XXXXXXXXX?text=Hola!%20Me%20gustaría%20saber%20más%20sobre%20Black%20Ivory"
+             target="_blank" rel="noopener">
+            Consultar
+          </a>
         </div>
 
-        <div class="product">
-          <div class="img">Imagen</div>
-          <div class="body">
-            <div class="meta">
-              <strong>Pieza 02</strong>
-              <span class="tag available">Disponible</span>
-            </div>
-            <div class="small-muted">Descripción corta de la pieza</div>
-          </div>
-        </div>
-
-        <div class="product">
-          <div class="img">Imagen</div>
-          <div class="body">
-            <div class="meta">
-              <strong>Pieza 03</strong>
-              <span class="tag sold">Vendida</span>
-            </div>
-            <div class="small-muted">Descripción corta de la pieza</div>
-          </div>
-        </div>
       </div>
+
     </div>
   </section>
 </main>
@@ -108,8 +61,13 @@
 <footer class="footer">
   <div class="container">
     <div class="row">
-      <div>© <span id="year"></span> by CAVS — Cristóbal Aboitiz</div>
-      <div class="small-muted"><a href="index.html">Inicio</a> · <a href="contact.html">Contacto</a></div>
+      <div>
+        © <span id="year"></span> by CAVS — Cristóbal Aboitiz
+      </div>
+      <div class="small-muted">
+        <a href="index.html">Inicio</a> ·
+        <a href="contact.html">Contacto</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -117,5 +75,6 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
