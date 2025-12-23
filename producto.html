@@ -45,6 +45,9 @@
           —
         </p>
 
+        <!-- Debug chiquitito para cachar al tiro -->
+        <p class="small-muted" id="debugLine" style="margin-top:10px;"></p>
+
       </div>
 
       <div style="height:18px"></div>
@@ -95,10 +98,11 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 
   const DATA_URL = "assets/data/products.json";
-  const IMG_BASE = "assets/img/tablas/"; // ✅ producto.html está en la raíz
+  const IMG_BASE = "assets/img/tablas/";
 
   const params = new URLSearchParams(location.search);
-  const id = params.get("id");
+  const idRaw = params.get("id");
+  const id = idRaw ? idRaw.trim() : "";
 
   const formatCLP = (n) =>
     "$" + new Intl.NumberFormat("es-CL").format(n);
@@ -117,31 +121,48 @@
       wrap.className = "shot";
 
       const img = document.createElement("img");
-      img.src = IMG_BASE + name;      // ✅ acá estaba el problema típico (../)
+      img.src = IMG_BASE + name;
       img.alt = "Foto " + (i + 1);
       img.loading = "lazy";
 
-      img.onerror = () => wrap.remove();
+      img.onerror = () => {
+        // si falla, lo quitamos para que no quede blanco
+        wrap.remove();
+      };
 
       wrap.appendChild(img);
       scroller.appendChild(wrap);
     });
+
+    // Si todas fallaron, avisamos
+    setTimeout(() => {
+      if (scroller.children.length === 0){
+        scroller.innerHTML = `<div class="card pad"><p class="p">No se encontraron las fotos. Revisa nombres y carpeta <strong>assets/img/tablas/</strong>.</p></div>`;
+      }
+    }, 700);
   }
 
   async function init(){
+    const debug = document.getElementById("debugLine");
+
     if(!id){
       document.getElementById("prodTitle").textContent = "Producto no encontrado";
       document.getElementById("prodDesc").textContent = "Falta el parámetro ?id=BS-XXX en la URL.";
+      debug.textContent = `URL esperada: producto.html?id=BS-001 (ejemplo)`;
       return;
     }
+
+    debug.textContent = `ID recibido: ${id} · JSON: ${DATA_URL} · IMG: ${IMG_BASE}`;
 
     const res = await fetch(DATA_URL, { cache: "no-store" });
     const all = await res.json();
 
-    const p = all.find(x => x.id === id);
+    const p = all.find(x => (x.id || "").trim() === id);
+
     if(!p){
       document.getElementById("prodTitle").textContent = "Producto no encontrado";
-      document.getElementById("prodDesc").textContent = `No existe "${id}" en products.json.`;
+      document.getElementById("prodDesc").textContent =
+        `No existe "${id}" en products.json (revisa que el id coincida exacto).`;
       return;
     }
 
@@ -168,6 +189,7 @@
     console.error(err);
     document.getElementById("prodTitle").textContent = "Error cargando producto";
     document.getElementById("prodDesc").textContent = "Revisa la consola y la ruta a products.json.";
+    document.getElementById("debugLine").textContent = String(err);
   });
 </script>
 
