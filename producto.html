@@ -17,14 +17,14 @@
 
     <nav class="nav-links">
       <a href="index.html">Inicio</a>
-      <a href="blacksheep.html">Blacksheep</a>
+      <a class="active" href="blacksheep.html">Blacksheep</a>
       <a href="black-ivory.html">Black Ivory</a>
       <a href="about.html">Sobre CAVS</a>
       <a href="contact.html">Contacto</a>
     </nav>
 
     <a class="cta"
-       href="https://wa.me/56973765456"
+       href="https://wa.me/56973765456?text=Hola!%20Te%20escribo%20desde%20la%20web%20by%20CAVS%20para%20hacer%20una%20consulta."
        target="_blank" rel="noopener">
       Contactar
     </a>
@@ -32,62 +32,52 @@
 </header>
 
 <main>
-
-  <!-- =========================
-       HERO PRODUCTO
-       ========================= -->
   <section class="section">
     <div class="container">
 
       <div class="card pad brand-hero">
 
-        <div class="kicker" id="product-code">Producto</div>
+        <div class="kicker" id="prodCode">—</div>
 
-        <h1 class="h1" id="product-name">Cargando…</h1>
+        <h1 class="h1" id="prodTitle" style="margin-top:10px;">Producto</h1>
 
-        <p class="lead" id="product-desc"></p>
+        <p class="lead" id="prodDesc" style="max-width:780px; margin: 10px auto 0;">
+          —
+        </p>
 
-        <div class="pills" id="product-tags"></div>
+      </div>
 
-        <div class="actions" id="product-actions"></div>
+      <div style="height:18px"></div>
 
+      <!-- GALERÍA -->
+      <div class="hscroll" id="gallery" aria-label="Galería de fotos"></div>
+      <div class="hscroll-hint">Desliza para ver más imágenes →</div>
+
+      <div style="height:24px"></div>
+
+      <!-- FICHA -->
+      <div class="card pad">
+        <h2 class="h2" style="margin-bottom:14px;">Ficha técnica</h2>
+
+        <p class="p"><strong>Estado:</strong> <span id="prodStatus">—</span></p>
+        <p class="p"><strong>Precio:</strong> <span id="prodPrice">—</span></p>
+        <p class="p"><strong>Madera:</strong> <span id="prodWood">—</span></p>
+        <p class="p"><strong>Resina:</strong> <span id="prodResin">—</span></p>
+        <p class="p"><strong>Medidas:</strong> <span id="prodMeasures">—</span></p>
+
+        <div class="actions" style="justify-content:center; margin-top:22px;">
+          <a class="btn" href="blacksheep.html">Volver a Blacksheep</a>
+
+          <a class="btn primary" id="waBtn"
+             href="https://wa.me/56973765456"
+             target="_blank" rel="noopener">
+            Consultar por WhatsApp
+          </a>
+        </div>
       </div>
 
     </div>
   </section>
-
-  <!-- =========================
-       GALERÍA
-       ========================= -->
-  <section class="section small">
-    <div class="container">
-
-      <div class="hscroll" id="product-gallery">
-        <!-- imágenes dinámicas -->
-      </div>
-
-      <div class="hscroll-hint">
-        Desliza para ver más imágenes →
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================
-       FICHA TÉCNICA
-       ========================= -->
-  <section class="section">
-    <div class="container">
-
-      <h2 class="h2">Ficha técnica</h2>
-
-      <div class="grid-2" id="product-specs">
-        <!-- specs dinámicos -->
-      </div>
-
-    </div>
-  </section>
-
 </main>
 
 <footer class="footer">
@@ -103,93 +93,81 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
-<!-- =========================
-     SCRIPT PRODUCTO
-     ========================= -->
-<script>
-const params = new URLSearchParams(window.location.search);
-const code = params.get("code");
+  const DATA_URL = "assets/data/products.json";
+  const IMG_BASE = "assets/img/tablas/"; // ✅ producto.html está en la raíz
 
-fetch("assets/data/products.json")
-  .then(res => res.json())
-  .then(products => {
+  const params = new URLSearchParams(location.search);
+  const id = params.get("id");
 
-    const product = products.find(p => p.code === code);
+  const formatCLP = (n) =>
+    "$" + new Intl.NumberFormat("es-CL").format(n);
 
-    if (!product) {
-      document.body.innerHTML = "<p style='padding:40px'>Producto no encontrado.</p>";
+  function renderGallery(images){
+    const scroller = document.getElementById("gallery");
+    scroller.innerHTML = "";
+
+    if (!images || !images.length){
+      scroller.innerHTML = `<div class="card pad"><p class="p">Este producto no tiene fotos cargadas.</p></div>`;
       return;
     }
 
-    // ---- HERO ----
-    document.title = product.name + " — Blacksheep by CAVS";
-    document.getElementById("product-code").textContent = product.code;
-    document.getElementById("product-name").textContent = product.name;
-    document.getElementById("product-desc").textContent = product.description;
+    images.forEach((name, i) => {
+      const wrap = document.createElement("div");
+      wrap.className = "shot";
 
-    // Tags
-    const tags = document.getElementById("product-tags");
-    product.tags.forEach(t => {
-      const span = document.createElement("span");
-      span.className = "pill";
-      span.textContent = t;
-      tags.appendChild(span);
+      const img = document.createElement("img");
+      img.src = IMG_BASE + name;      // ✅ acá estaba el problema típico (../)
+      img.alt = "Foto " + (i + 1);
+      img.loading = "lazy";
+
+      img.onerror = () => wrap.remove();
+
+      wrap.appendChild(img);
+      scroller.appendChild(wrap);
     });
+  }
 
-    // Acciones
-    const actions = document.getElementById("product-actions");
-
-    if (product.status === "available") {
-      actions.innerHTML = `
-        <a class="btn primary"
-           href="https://wa.me/56973765456?text=Hola!%20Estoy%20interesado%20en%20la%20tabla%20${product.code}."
-           target="_blank">
-          Comprar / Consultar
-        </a>
-        <span class="pill">Precio: $${product.price.toLocaleString("es-CL")}</span>
-      `;
-    } else {
-      actions.innerHTML = `
-        <span class="pill">Vendida</span>
-        <a class="btn"
-           href="https://wa.me/56973765456?text=Hola!%20Me%20gustaría%20encargar%20una%20tabla%20similar%20a%20${product.code}."
-           target="_blank">
-          Encargar similar
-        </a>
-      `;
+  async function init(){
+    if(!id){
+      document.getElementById("prodTitle").textContent = "Producto no encontrado";
+      document.getElementById("prodDesc").textContent = "Falta el parámetro ?id=BS-XXX en la URL.";
+      return;
     }
 
-    // ---- GALERÍA ----
-    const gallery = document.getElementById("product-gallery");
+    const res = await fetch(DATA_URL, { cache: "no-store" });
+    const all = await res.json();
 
-    product.images.forEach(img => {
-      const div = document.createElement("div");
-      div.className = "shot";
-      div.innerHTML = `
-        <img src="assets/img/tablas/${img}"
-             alt="${product.name}">
-      `;
-      gallery.appendChild(div);
-    });
+    const p = all.find(x => x.id === id);
+    if(!p){
+      document.getElementById("prodTitle").textContent = "Producto no encontrado";
+      document.getElementById("prodDesc").textContent = `No existe "${id}" en products.json.`;
+      return;
+    }
 
-    // ---- FICHA ----
-    const specs = document.getElementById("product-specs");
+    document.title = `${p.id} — ${p.title} | Blacksheep by CAVS`;
 
-    Object.entries(product.specs).forEach(([key, value]) => {
-      const card = document.createElement("div");
-      card.className = "card pad";
-      card.innerHTML = `
-        <div class="kicker">${key}</div>
-        <p class="p">${value}</p>
-      `;
-      specs.appendChild(card);
-    });
+    document.getElementById("prodCode").textContent = p.id;
+    document.getElementById("prodTitle").textContent = p.title;
+    document.getElementById("prodDesc").textContent = p.description || "";
 
-  })
-  .catch(err => {
-    console.error("Error cargando producto:", err);
+    document.getElementById("prodStatus").textContent = p.status || "—";
+    document.getElementById("prodPrice").textContent = formatCLP(Number(p.price || 0));
+    document.getElementById("prodWood").textContent = p.wood || "—";
+    document.getElementById("prodResin").textContent = p.resin || "—";
+    document.getElementById("prodMeasures").textContent = p.measures || "—";
+
+    const msg = `Hola! Me interesa la tabla ${p.id} (${p.title}). ¿Sigue disponible?`;
+    document.getElementById("waBtn").href =
+      `https://wa.me/56973765456?text=${encodeURIComponent(msg)}`;
+
+    renderGallery(p.images);
+  }
+
+  init().catch(err => {
+    console.error(err);
+    document.getElementById("prodTitle").textContent = "Error cargando producto";
+    document.getElementById("prodDesc").textContent = "Revisa la consola y la ruta a products.json.";
   });
 </script>
 
