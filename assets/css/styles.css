@@ -83,6 +83,7 @@ img{ max-width:100%; display:block; }
 @media (max-width: 900px){
   .hero-grid{ grid-template-columns: 1fr; }
 }
+
 .card{
   background: rgba(255,255,255,.04);
   border: 1px solid var(--line);
@@ -91,12 +92,14 @@ img{ max-width:100%; display:block; }
   box-shadow: 0 12px 40px rgba(0,0,0,.30);
 }
 .card.pad{ padding: 26px; }
+
 .kicker{
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: .14em;
   font-size: 12px;
 }
+
 .h1{
   margin: 10px 0 10px;
   font-size: 44px;
@@ -106,12 +109,15 @@ img{ max-width:100%; display:block; }
 @media (max-width: 560px){
   .h1{ font-size: 36px; }
 }
+
 .lead{
   color: rgba(243,243,244,.86);
   font-size: 16px;
   margin: 0 0 18px;
 }
+
 .actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 16px; }
+
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
   padding: 10px 14px;
@@ -211,6 +217,7 @@ img{ max-width:100%; display:block; }
   display:flex; align-items:center; justify-content:space-between; gap:10px;
   color: rgba(243,243,244,.88);
 }
+
 .tag{
   font-size: 12px;
   padding: 5px 9px;
@@ -273,8 +280,8 @@ img{ max-width:100%; display:block; }
 }
 .hscroll .shot img{
   width: 100%;
-  height: 520px;       /* grande */
-  object-fit: contain; /* ideal para PNG transparentes */
+  height: 520px;
+  object-fit: contain;
   display: block;
 }
 @media (max-width: 560px){
@@ -314,8 +321,26 @@ img{ max-width:100%; display:block; }
 }
 
 /* =========================
-   BRAND HERO (CENTRADO)
+   CENTRADO GLOBAL (About/Contact/Brand)
    ========================= */
+/* Usa esta clase en el card principal de cada página:
+   <div class="card pad page-center"> ... */
+.page-center{
+  text-align: center;
+}
+.page-center .lead,
+.page-center .p,
+.page-center .small-muted{
+  text-align: center;
+}
+.page-center .actions{
+  justify-content: center;
+}
+.page-center .pills{
+  justify-content: center;
+}
+
+/* Brand hero (ivory/blacksheep si lo haces “un bloque”) */
 .brand-hero{
   text-align: center;
 }
@@ -331,51 +356,38 @@ img{ max-width:100%; display:block; }
 }
 
 /* =========================
-   LOGOS – AJUSTE DEFINITIVO
+   LOGOS – TAMAÑOS POR CONTEXTO
    ========================= */
 
-/* =========================
-   INDEX (cards de marcas)
-   ========================= */
-/* Muy pequeños: ~1/4 del tamaño hero */
-.brand-logo{
-  height: 18px;          /* <- CLAVE */
+/* BASE: sin tamaño para evitar peleas */
+.brand-logo,
+.blacksheep-logo,
+.ivory-logo{
   width: auto;
-  margin: 0 auto 10px;
+  display: block;
+  opacity: .95;
+}
+
+/* INDEX: MUY chicos (≈ 1/4) */
+.brand-card .brand-logo{
+  height: 18px;
+  margin: 0 0 10px;
   opacity: .9;
 }
 
-/* =========================
-   PÁGINAS DE MARCA
-   ========================= */
-/* Más protagonistas (x2) */
-.blacksheep-logo{
-  display:block;
-  margin: 20px auto 18px;
-  height: 72px;          /* <- DOBLE */
-  width: auto;
-  opacity: .95;
+/* PÁGINAS: grandes (x2 o más) */
+.brand-hero .blacksheep-logo{
+  height: 110px;
+  margin: 22px auto 18px;
+}
+.brand-hero .ivory-logo{
+  height: 100px;
+  margin: 22px auto 18px;
 }
 
-.ivory-logo{
-  display:block;
-  margin: 20px auto 18px;
-  height: 64px;          /* <- DOBLE */
-  width: auto;
-  opacity: .95;
-}
-
-/* =========================
-   MOBILE
-   ========================= */
+/* Mobile */
 @media (max-width: 560px){
-  .brand-logo{
-    height: 14px;
-  }
-  .blacksheep-logo{
-    height: 52px;
-  }
-  .ivory-logo{
-    height: 48px;
-  }
+  .brand-card .brand-logo{ height: 14px; }
+  .brand-hero .blacksheep-logo{ height: 80px; }
+  .brand-hero .ivory-logo{ height: 72px; }
 }
