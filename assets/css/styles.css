@@ -317,51 +317,40 @@ img{ max-width:100%; display:block; }
    LOGOS (INDEX + PÁGINAS)
    ========================= */
 
-/* INDEX: logos dentro de las cards de marca */
+/* =========================
+   LOGOS (AJUSTE FINAL)
+   ========================= */
+
+/* Index (cards de marcas) */
 .brand-logo{
-  height: 64px;
+  height: 32px;       /* antes 64 */
   width: auto;
-  opacity: .95;
-  margin-bottom: 12px;
+  opacity: .9;
+  margin-bottom: 10px;
 }
 
-/* BLACK IVORY landing */
-.ivory-hero{
-  text-align: center;
-  padding: 60px 26px;
-}
+/* Black Ivory */
 .ivory-logo{
   display:block;
-  margin: 22px auto 18px;
-  height: 88px;
+  margin: 18px auto 14px;
+  height: 36px;       /* antes 88 */
   width: auto;
-  opacity: .95;
-}
-.ivory-hero .lead{
-  max-width: 520px;
-  margin: 18px auto;
-}
-.ivory-hero .actions{
-  justify-content: center;
-  margin-top: 26px;
+  opacity: .9;
 }
 
-/* BLACKSHEEP landing (simple) */
-.blacksheep-hero{
-  text-align: center;
-  padding: 56px 26px;
-}
+/* Blacksheep */
 .blacksheep-logo{
   display:block;
-  margin: 22px auto 18px;
-  height: 96px; /* un poco más protagonista */
+  margin: 18px auto 14px;
+  height: 40px;       /* antes 96 */
   width: auto;
-  opacity: .95;
+  opacity: .9;
 }
 
 /* Mobile */
 @media (max-width: 560px){
-  .brand-logo{ height: 52px; }
-  .ivory-logo{ height: 64px; }
-  .blacksheep-logo{ height: 72px; }
+  .brand-logo{ height: 26px; }
+  .ivory-logo{ height: 30px; }
+  .blacksheep-logo{ height: 32px; }
 }
+
