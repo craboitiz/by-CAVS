@@ -368,12 +368,15 @@ img{ max-width:100%; display:block; }
   opacity: .95;
 }
 
-/* INDEX: MUY chicos (≈ 1/4) */
-.brand-card .brand-logo{
-  height: 18px;
-  margin: 0 0 10px;
+/* INDEX: MUY chicos (forzado) */
+.brand-card img.brand-logo,
+.brand-card .content img.brand-logo{
+  height: 18px !important;
+  width: auto !important;
+  margin: 0 0 10px !important;
   opacity: .9;
 }
+
 
 /* PÁGINAS: grandes (x2 o más) */
 .brand-hero .blacksheep-logo{
