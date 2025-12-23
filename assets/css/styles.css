@@ -251,7 +251,6 @@ img{ max-width:100%; display:block; }
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
-
 .hscroll::-webkit-scrollbar { height: 10px; }
 .hscroll::-webkit-scrollbar-thumb {
   background: rgba(255,255,255,.15);
@@ -261,7 +260,6 @@ img{ max-width:100%; display:block; }
   background: rgba(255,255,255,.06);
   border-radius: 999px;
 }
-
 .hscroll .shot {
   flex: 0 0 88%;
   scroll-snap-align: start;
@@ -270,29 +268,25 @@ img{ max-width:100%; display:block; }
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.04);
 }
-
 @media (min-width: 900px) {
   .hscroll .shot { flex-basis: 72%; }
 }
-
 .hscroll .shot img{
   width: 100%;
   height: 520px;       /* grande */
   object-fit: contain; /* ideal para PNG transparentes */
   display: block;
 }
-
 @media (max-width: 560px){
   .hscroll .shot img{ height: 360px; }
 }
-
 .hscroll-hint{
   font-size: 13px;
   color: rgba(243,243,244,.70);
   margin-top: 10px;
 }
 
-/* --- Hero image rotator --- */
+/* --- Hero image rotator (index) --- */
 .hero-rotator{
   position: relative;
   height: 100%;
@@ -307,9 +301,7 @@ img{ max-width:100%; display:block; }
   opacity: 0;
   transition: opacity 1.2s ease;
 }
-.hero-slide.active{
-  opacity: 1;
-}
+.hero-slide.active{ opacity: 1; }
 .hero-rotator .label{
   position: absolute;
   bottom: 0;
@@ -322,34 +314,54 @@ img{ max-width:100%; display:block; }
 }
 
 /* =========================
-   BRAND LOGOS (FINAL)
+   LOGOS (INDEX + PÁGINAS)
    ========================= */
 
-/* Base (por defecto) */
+/* INDEX: logos dentro de las cards de marca */
 .brand-logo{
-  height: 48px;     /* base: no tan chico */
+  height: 64px;
   width: auto;
+  opacity: .95;
   margin-bottom: 12px;
+}
+
+/* BLACK IVORY landing */
+.ivory-hero{
+  text-align: center;
+  padding: 60px 26px;
+}
+.ivory-logo{
+  display:block;
+  margin: 22px auto 18px;
+  height: 88px;
+  width: auto;
+  opacity: .95;
+}
+.ivory-hero .lead{
+  max-width: 520px;
+  margin: 18px auto;
+}
+.ivory-hero .actions{
+  justify-content: center;
+  margin-top: 26px;
+}
+
+/* BLACKSHEEP landing (simple) */
+.blacksheep-hero{
+  text-align: center;
+  padding: 56px 26px;
+}
+.blacksheep-logo{
+  display:block;
+  margin: 22px auto 18px;
+  height: 96px; /* un poco más protagonista */
+  width: auto;
   opacity: .95;
 }
 
-/* Home: dentro de las cards de marca */
-.brand-card .brand-logo{
-  height: 64px;     /* aquí lo hacemos grande de verdad */
-  width: auto;
-  max-height: none; /* evita que otra regla lo limite */
-}
-
-/* Páginas internas: arriba del H1 (blacksheep / black ivory) */
-.card.pad .brand-logo{
-  height: 72px;
-  width: auto;
-  max-height: none;
-}
-
-/* Ajuste mobile */
+/* Mobile */
 @media (max-width: 560px){
-  .brand-logo{ height: 40px; }
-  .brand-card .brand-logo{ height: 52px; }
-  .card.pad .brand-logo{ height: 56px; }
+  .brand-logo{ height: 52px; }
+  .ivory-logo{ height: 64px; }
+  .blacksheep-logo{ height: 72px; }
 }
