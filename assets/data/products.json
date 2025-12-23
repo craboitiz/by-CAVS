@@ -1,0 +1,25 @@
+[
+  {
+    "code": "BS-001",
+    "brand": "Blacksheep",
+    "name": "Tabla picar Nogal Menta",
+    "price": 59990,
+    "status": "sold",
+    "wood": "Nogal",
+    "resin": "Menta gris",
+    "size": "40 × 20 × 2,5 cm",
+    "photos": 3,
+    "notes": "Borde biselado + terminación mate"
+  },
+  {
+    "code": "BS-002",
+    "brand": "blacksheep",
+    "name": "Tabla asado Roble Negro",
+    "price": 44990,
+    "status": "available",
+    "wood": "Roble",
+    "resin": "Negra",
+    "size": "45 × 22 × 2,5 cm",
+    "photos": 4
+  }
+]
