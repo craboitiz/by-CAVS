@@ -1,41 +1,38 @@
 [
   {
-    "code": "BS-001",
+    "id": "BS-001",
     "brand": "blacksheep",
-    "name": "Tabla picar Nogal Menta",
+    "title": "Tabla picar Nogal Menta",
+    "description": "Tabla para picar en nogal europeo con resina menta. Pieza única fabricada por Blacksheep by CAVS.",
+    "status": "Vendida",
     "price": 59990,
-    "status": "sold",
     "wood": "Nogal",
     "resin": "Menta gris",
-    "size": "40 × 20 × 2,5 cm",
-    "finish": "Satinada",
-    "photos": 3,
-    "description": "Tabla para picar en nogal con resina color menta. Pieza única fabricada por Blacksheep by CAVS."
+    "measures": "40 × 20 × 2,5 cm",
+    "images": ["BS-001-1.png", "BS-001-2.png", "BS-001-3.png"]
   },
   {
-    "code": "BS-002",
+    "id": "BS-002",
     "brand": "blacksheep",
-    "name": "Tabla picar Nogal Negro Azul",
-    "price": 109990,
-    "status": "available",
-    "wood": "Nogal",
-    "resin": "Azul y Negra brillante",
-    "size": "70 × 28 × 4 cm",
-    "finish": "Satinada",
-    "photos": 3,
-    "description": "Tabla para picar en nogal con resina azul y negro brillante. Pieza única fabricada por Blacksheep by CAVS."
+    "title": "Tabla asado Raulí Negro",
+    "description": "Tabla de asado en raulí con resina negra. Pieza única fabricada por Blacksheep by CAVS.",
+    "status": "Disponible",
+    "price": 54990,
+    "wood": "Raulí",
+    "resin": "Negra",
+    "measures": "50 × 25 × 2,5 cm",
+    "images": ["BS-002-1.png", "BS-002-2.png", "BS-002-3.png"]
   },
   {
-    "code": "BS-003",
+    "id": "BS-003",
     "brand": "blacksheep",
-    "name": "Tabla picar Nogal Azul Rey",
-    "price": 89990,
-    "status": "sold",
+    "title": "Tabla picar Nogal Azul Rey",
+    "description": "Tabla para picar en nogal europeo con resina azul rey. Pieza única fabricada por Blacksheep by CAVS.",
+    "status": "Disponible",
+    "price": 64990,
     "wood": "Nogal",
     "resin": "Azul Rey",
-    "size": "70 × 28 × 4 cm",
-    "finish": "Satinada",
-    "photos": 3,
-    "description": "Tabla para picar en nogal europeo con resina azul Rey. Pieza única fabricada por Blacksheep by CAVS."
+    "measures": "40 × 20 × 2,5 cm",
+    "images": ["BS-003-1.png", "BS-003-2.png", "BS-003-3.png"]
   }
 ]
