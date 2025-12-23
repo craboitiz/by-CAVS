@@ -394,3 +394,6 @@ img{ max-width:100%; display:block; }
   .brand-hero .blacksheep-logo{ height: 110px; }
   .brand-hero .ivory-logo{ height: 110px; }
 }
+
+/* ÚLTIMO RECURSO: achicar cualquier .brand-logo SOLO dentro del index */
+body.home img.brand-logo{ height: 18px !important; }
