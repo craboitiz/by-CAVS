@@ -331,38 +331,51 @@ img{ max-width:100%; display:block; }
 }
 
 /* =========================
-   LOGOS (AJUSTE FINAL)
+   LOGOS – AJUSTE DEFINITIVO
    ========================= */
 
-/* Index (cards de marcas) */
+/* =========================
+   INDEX (cards de marcas)
+   ========================= */
+/* Muy pequeños: ~1/4 del tamaño hero */
 .brand-logo{
-  height: 32px;
+  height: 18px;          /* <- CLAVE */
   width: auto;
-  margin: 0 auto 10px; /* centrado */
+  margin: 0 auto 10px;
   opacity: .9;
 }
 
-/* Black Ivory */
-.ivory-logo{
-  display:block;
-  margin: 18px auto 14px;
-  height: 36px;
-  width: auto;
-  opacity: .9;
-}
-
-/* Blacksheep */
+/* =========================
+   PÁGINAS DE MARCA
+   ========================= */
+/* Más protagonistas (x2) */
 .blacksheep-logo{
   display:block;
-  margin: 18px auto 14px;
-  height: 40px;
+  margin: 20px auto 18px;
+  height: 72px;          /* <- DOBLE */
   width: auto;
-  opacity: .9;
+  opacity: .95;
 }
 
-/* Mobile */
+.ivory-logo{
+  display:block;
+  margin: 20px auto 18px;
+  height: 64px;          /* <- DOBLE */
+  width: auto;
+  opacity: .95;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
 @media (max-width: 560px){
-  .brand-logo{ height: 26px; }
-  .ivory-logo{ height: 30px; }
-  .blacksheep-logo{ height: 32px; }
+  .brand-logo{
+    height: 14px;
+  }
+  .blacksheep-logo{
+    height: 52px;
+  }
+  .ivory-logo{
+    height: 48px;
+  }
 }
