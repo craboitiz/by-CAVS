@@ -391,6 +391,6 @@ img{ max-width:100%; display:block; }
 /* Mobile */
 @media (max-width: 560px){
   .brand-card .brand-logo{ height: 14px; }
-  .brand-hero .blacksheep-logo{ height: 80px; }
-  .brand-hero .ivory-logo{ height: 72px; }
+  .brand-hero .blacksheep-logo{ height: 110px; }
+  .brand-hero .ivory-logo{ height: 110px; }
 }
