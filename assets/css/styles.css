@@ -314,8 +314,21 @@ img{ max-width:100%; display:block; }
 }
 
 /* =========================
-   LOGOS (INDEX + PÁGINAS)
+   BRAND HERO (CENTRADO)
    ========================= */
+.brand-hero{
+  text-align: center;
+}
+.brand-hero .lead,
+.brand-hero .p{
+  text-align: center;
+}
+.brand-hero .actions{
+  justify-content: center;
+}
+.brand-hero .pills{
+  justify-content: center;
+}
 
 /* =========================
    LOGOS (AJUSTE FINAL)
@@ -323,17 +336,17 @@ img{ max-width:100%; display:block; }
 
 /* Index (cards de marcas) */
 .brand-logo{
-  height: 32px;       /* antes 64 */
+  height: 32px;
   width: auto;
+  margin: 0 auto 10px; /* centrado */
   opacity: .9;
-  margin-bottom: 10px;
 }
 
 /* Black Ivory */
 .ivory-logo{
   display:block;
   margin: 18px auto 14px;
-  height: 36px;       /* antes 88 */
+  height: 36px;
   width: auto;
   opacity: .9;
 }
@@ -342,7 +355,7 @@ img{ max-width:100%; display:block; }
 .blacksheep-logo{
   display:block;
   margin: 18px auto 14px;
-  height: 40px;       /* antes 96 */
+  height: 40px;
   width: auto;
   opacity: .9;
 }
@@ -353,4 +366,3 @@ img{ max-width:100%; display:block; }
   .ivory-logo{ height: 30px; }
   .blacksheep-logo{ height: 32px; }
 }
-
