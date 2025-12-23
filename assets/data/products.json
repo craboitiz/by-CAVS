@@ -1,25 +1,41 @@
 [
   {
     "code": "BS-001",
-    "brand": "Blacksheep",
+    "brand": "blacksheep",
     "name": "Tabla picar Nogal Menta",
     "price": 59990,
     "status": "sold",
     "wood": "Nogal",
     "resin": "Menta gris",
     "size": "40 × 20 × 2,5 cm",
+    "finish": "Satinada",
     "photos": 3,
-    "notes": "Borde biselado + terminación mate"
+    "description": "Tabla para picar en nogal con resina color menta. Pieza única fabricada por Blacksheep by CAVS."
   },
   {
     "code": "BS-002",
     "brand": "blacksheep",
-    "name": "Tabla asado Roble Negro",
-    "price": 44990,
+    "name": "Tabla picar Nogal Negro Azul",
+    "price": 109990,
     "status": "available",
-    "wood": "Roble",
-    "resin": "Negra",
-    "size": "45 × 22 × 2,5 cm",
-    "photos": 4
+    "wood": "Nogal",
+    "resin": "Azul y Negra brillante",
+    "size": "70 × 28 × 4 cm",
+    "finish": "Satinada",
+    "photos": 3,
+    "description": "Tabla para picar en nogal con resina azul y negro brillante. Pieza única fabricada por Blacksheep by CAVS."
+  },
+  {
+    "code": "BS-003",
+    "brand": "blacksheep",
+    "name": "Tabla picar Nogal Azul Rey",
+    "price": 89990,
+    "status": "sold",
+    "wood": "Nogal",
+    "resin": "Azul Rey",
+    "size": "70 × 28 × 4 cm",
+    "finish": "Satinada",
+    "photos": 3,
+    "description": "Tabla para picar en nogal europeo con resina azul Rey. Pieza única fabricada por Blacksheep by CAVS."
   }
 ]
