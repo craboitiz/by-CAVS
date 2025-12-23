@@ -33,7 +33,7 @@
 
 <main>
 
-  <!-- HERO -->
+  <!-- HERO (un bloque centrado) -->
   <section class="section">
     <div class="container">
       <div class="card pad brand-hero">
@@ -65,19 +65,15 @@
     </div>
   </section>
 
-  <!-- CATÁLOGO DINÁMICO -->
+  <!-- CATÁLOGO -->
   <section class="section" id="catalogo">
     <div class="container">
-
       <h2 class="h2">Catálogo</h2>
-      <p class="p">Piezas disponibles y vendidas.</p>
+      <p class="p">Piezas disponibles, vendidas y a pedido.</p>
 
       <div style="height:14px"></div>
 
-      <div class="products" id="products-grid">
-        <!-- JS inyecta los productos aquí -->
-      </div>
-
+      <div class="products" id="productsGrid"></div>
     </div>
   </section>
 
@@ -89,19 +85,19 @@
       <div class="grid-3" style="margin-top:14px">
         <div class="card pad">
           <div class="kicker">1</div>
-          <h3>Define tu pieza</h3>
-          <p class="p">Medidas, uso, madera y color de resina.</p>
+          <h3 style="margin:8px 0 6px">Define tu pieza</h3>
+          <p class="p">Medidas, tipo de uso, madera y color de resina.</p>
         </div>
 
         <div class="card pad">
           <div class="kicker">2</div>
-          <h3>Confirmación</h3>
-          <p class="p">Propuesta, plazo y abono.</p>
+          <h3 style="margin:8px 0 6px">Confirmación</h3>
+          <p class="p">Te envío propuesta y plazo. Reserva con abono.</p>
         </div>
 
         <div class="card pad">
           <div class="kicker">3</div>
-          <h3>Fabricación</h3>
+          <h3 style="margin:8px 0 6px">Fabricación</h3>
           <p class="p">Proceso en taller y terminación final.</p>
         </div>
       </div>
@@ -112,7 +108,7 @@
            target="_blank" rel="noopener">
           Encargar por WhatsApp
         </a>
-        <a class="btn" href="contact.html">Contacto</a>
+        <a class="btn" href="contact.html">Ir a Contacto</a>
       </div>
     </div>
   </section>
@@ -132,62 +128,82 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
-<!-- =========================
-     CATÁLOGO DINÁMICO
-     ========================= -->
-<script>
-fetch("assets/data/products.json")
-  .then(res => res.json())
-  .then(products => {
+  const DATA_URL = "assets/data/products.json";
+  const IMG_BASE = "assets/img/tablas/";
 
-    // Orden:
-    // 1) disponibles primero
-    // 2) vendidos después
-    // 3) precio menor → mayor
-    products.sort((a, b) => {
-      if (a.status !== b.status) {
-        return a.status === "available" ? -1 : 1;
-      }
-      return a.price - b.price;
-    });
+  const formatCLP = (n) =>
+    new Intl.NumberFormat("es-CL").format(n);
 
-    const grid = document.getElementById("products-grid");
+  function statusClass(status){
+    const s = (status || "").toLowerCase();
+    if (s.includes("dispon")) return "available";
+    if (s.includes("vend")) return "sold";
+    return "made";
+  }
 
-    products.forEach(p => {
-      const tagClass = p.status === "available" ? "available" : "sold";
-      const tagText  = p.status === "available" ? "Disponible" : "Vendida";
+  function statusLabel(status){
+    return status || "Encargo";
+  }
 
-      const el = document.createElement("div");
-      el.className = "product";
+  function isAvailable(status){
+    const s = (status || "").toLowerCase();
+    return s.includes("dispon");
+  }
 
-      el.innerHTML = `
-        <a class="cardlink" href="producto.html?code=${p.code}">
+  function renderCard(p){
+    const thumb = (p.images && p.images.length) ? (IMG_BASE + p.images[0]) : "";
+    const tagCls = statusClass(p.status);
+
+    return `
+      <div class="product">
+        <a class="cardlink" href="producto.html?id=${encodeURIComponent(p.id)}">
           <div class="img">
-            <img src="assets/img/tablas/${p.code}-1.png"
-                 alt="${p.name}"
-                 loading="lazy">
+            ${thumb ? `<img src="${thumb}" alt="${p.title}" loading="lazy">` : `Imagen`}
           </div>
 
           <div class="body">
             <div class="meta" style="align-items:flex-start">
               <div>
-                <p class="title">${p.name}</p>
-                <div class="price">Precio: <strong>$${p.price.toLocaleString("es-CL")}</strong></div>
-                <div class="small-muted">Código: ${p.code}</div>
+                <p class="title">${p.title}</p>
+                <div class="price">Precio: <strong>$${formatCLP(p.price || 0)}</strong></div>
+                <div class="small-muted">Código: ${p.id}</div>
               </div>
-              <span class="tag ${tagClass}">${tagText}</span>
+              <span class="tag ${tagCls}">${statusLabel(p.status)}</span>
             </div>
           </div>
         </a>
-      `;
+      </div>
+    `;
+  }
 
-      grid.appendChild(el);
+  async function initCatalog(){
+    const grid = document.getElementById("productsGrid");
+    grid.innerHTML = "";
+
+    const res = await fetch(DATA_URL, { cache: "no-store" });
+    const all = await res.json();
+
+    const bs = all.filter(p => (p.brand || "").toLowerCase() === "blacksheep");
+
+    // Orden: disponibles primero, luego vendidas, y dentro de cada grupo por precio asc
+    bs.sort((a,b) => {
+      const aAvail = isAvailable(a.status) ? 0 : 1;
+      const bAvail = isAvailable(b.status) ? 0 : 1;
+      if (aAvail !== bAvail) return aAvail - bAvail;
+
+      const ap = Number(a.price || 0);
+      const bp = Number(b.price || 0);
+      return ap - bp;
     });
-  })
-  .catch(err => {
-    console.error("Error cargando productos:", err);
+
+    grid.innerHTML = bs.map(renderCard).join("");
+  }
+
+  initCatalog().catch(err => {
+    console.error(err);
+    document.getElementById("productsGrid").innerHTML =
+      `<div class="card pad"><p class="p">No se pudo cargar el catálogo.</p></div>`;
   });
 </script>
 
